@@ -20,6 +20,9 @@ use App\Http\Controllers\Admin\FooterContactInfoController;
 use App\Http\Controllers\Admin\FooterHelpLinkController;
 use App\Http\Controllers\Admin\FooterInfoController;
 use App\Http\Controllers\Admin\FooterUsefulLinkController;
+use App\Http\Controllers\Admin\GalleryAlbumController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\GallerySectionSettingController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
@@ -44,14 +47,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/galery', [HomeController::class, 'galery'])->name('galery');
+Route::get('/gallery', [HomeController::class, 'galery'])->name('galery');
+Route::get('portfolios', [HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
 Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
+Route::get('album-detail/{id}', [HomeController::class, 'showGallery'])->name('show.album');
 Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
-Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/services', [HomeController::class, 'service'])->name('service');
 Route::get('/contact', [HomeController::class, 'contactMe'])->name('contact.index');
 Route::post('contact', [HomeController::class, 'contact'])->name('contact');
-Route::get('qualification', [QualificationController::class, 'index'])->name('qualification');
 
 /** Admin Routes */
 
@@ -88,23 +92,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     /** Portfolio Section Setting Route **/
     Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class);
 
-    /** Skill Section Setting Route **/
-    Route::resource('skill-section-setting', SkillSectionSettingController::class);
-
-    /** Skill Item Route **/
-    Route::resource('skill-item', SkillItemController::class);
-
-    /** Qualifications Route **/
-    Route::resource('qualifications', QualificationController::class);
-
-    /** Experience Route **/
-    Route::resource('experience', ExperienceController::class);
-
-    /** Feedback Route **/
-    Route::resource('feedback', FeedbackController::class);
-    /** Feedback Section Setting Route **/
-    Route::resource('feedback-section-setting', FeedbackSectionSettingController::class);
-
     /** Blog Section Setting Route **/
     Route::resource('blog-category', BlogCategoryController::class);
     /** Blog Route **/
@@ -136,4 +123,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /**Seo Setting Route **/
     Route::resource('seo-setting', SeoSettingController::class);
+
+    Route::resource('gallery', GalleryController::class);
+    Route::resource('gallery-album', GalleryAlbumController::class);
+    Route::resource('gallery-section-setting', GallerySectionSettingController::class);
 });

@@ -109,6 +109,17 @@
             </li>
             {{--END Blog --}}
 
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Gallery</span>
+                </a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li><a class="nav-link" href="{{ route('admin.gallery-album.index') }}">Album</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.gallery.index') }}">Photos</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.gallery-section-setting.index') }}">Section Setting</a></li>
+                </ul>
+            </li>
+
             {{-- Contact --}}
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>

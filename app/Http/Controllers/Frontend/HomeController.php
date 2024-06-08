@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactMail;
 use App\Models\About;
+use App\Models\Album;
 use App\Models\Blog;
 use App\Models\BlogSectionSetting;
 use App\Models\ContactSectionSetting;
+use App\Models\GallerySectionSetting;
 use App\Models\Hero;
 use App\Models\PortfolioItem;
 use App\Models\PortfolioSectionSetting;
@@ -42,15 +44,26 @@ class HomeController extends Controller
 
     public function galery()
     {
-        $portfolioItems = PortfolioItem::latest()->pluck('image')->toArray();
-        $blogs = Blog::latest()->pluck('image')->toArray();
+        $gallerySectionSetting = GallerySectionSetting::first();
+        $albums = Album::latest()->get();
 
-        $galery = array_merge($portfolioItems, $blogs);
-
-        return view('frontend.galery', compact('galery'));
+        return view('frontend.galery', compact('gallerySectionSetting', 'albums'));
     }
 
-    /**Portfolio-details */
+    public function showGallery($id)
+    {
+        $album = Album::findOrFail($id)->load('images');
+        return view('frontend.gallery-item', compact('album'));
+    }
+
+    public function portfolio()
+    {
+        $portfolioItems = PortfolioItem::latest()->get();
+        $portfolioSetting = PortfolioSectionSetting::first();
+
+        return view('frontend.portfolio', compact('portfolioItems', 'portfolioSetting'));
+    }
+    
     public function showPortfolio($id)
     {
         $portfolio = PortfolioItem::findOrFail($id)->load('category');

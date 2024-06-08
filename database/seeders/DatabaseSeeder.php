@@ -23,5 +23,9 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('password'),
         ]);
+
+        $this->call([
+            UsefulLinksSeeder::class,
+        ]);
     }
 }

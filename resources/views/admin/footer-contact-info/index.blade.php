@@ -6,7 +6,7 @@
         <div class="section-header-back">
             <a href="{{ url('/dashboard') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <h1>Footer Contatc Information</h1>
+        <h1>Footer Contact Information</h1>
 
     </div>
 

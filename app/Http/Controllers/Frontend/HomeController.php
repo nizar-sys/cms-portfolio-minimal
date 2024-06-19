@@ -15,6 +15,8 @@ use App\Models\PortfolioItem;
 use App\Models\PortfolioSectionSetting;
 use App\Models\Service;
 use App\Models\ServiceSectionSetting;
+use App\Models\KrfSectionSetting;
+use App\Models\Krfimage;
 use App\Models\TyperTitle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -50,6 +52,15 @@ class HomeController extends Controller
         return view('frontend.galery', compact('gallerySectionSetting', 'albums'));
     }
 
+    public function krf()
+    {
+        $krf = KrfSectionSetting::first();
+        $krfimage = Krfimage::all();
+        /* $krf = KrfSectionSetting::latest()->get(['id', 'title', 'sub_title', 'logo', 'description']); */
+
+        return view('frontend.krf', compact('krf', 'krfimage'));
+    }
+    
     public function showGallery($id)
     {
         $album = Album::findOrFail($id)->load('images');
@@ -97,7 +108,7 @@ class HomeController extends Controller
 
     public function service()
     {
-        $services = Service::latest()->get(['id', 'name', 'description', 'image']);;
+        $services = Service::latest()->get(['id', 'name', 'description', 'image']);
         $serviceSetting = ServiceSectionSetting::first();
 
         return view('frontend.service', compact('services', 'serviceSetting'));

@@ -31,7 +31,7 @@ class ServiceDataTable extends DataTable
                         <a href="' . route('admin.service.destroy', $query->id) . '" class="btn btn-danger delete-item"><i class="fas fa-trash"></i></a>';
             })
             ->setRowId('id')
-            ->rawColumns(['image', 'action']);
+            ->rawColumns(['image', 'action', 'description']);
     }
 
     /**

@@ -21,6 +21,7 @@ class UsefulLinksSeeder extends Seeder
             ['name' => 'Portfolio', 'url' => '/portfolios'],
             ['name' => 'Gallery', 'url' => '/gallery'],
             ['name' => 'Contact', 'url' => '/contact'],
+            ['name' => 'Kelas Reset Film', 'url' => '/krf'],
         ];
 
         FooterUsefulLink::insert($usefulLinks);

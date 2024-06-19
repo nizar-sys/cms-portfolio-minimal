@@ -28,7 +28,7 @@
                                     Info
                                 </label>
                                 <div class="col-sm-12 col-md-7">
-                                    <textarea name="info" class="form-control" style="height: 100px">{{ $footerinfo?->info }}</textarea>
+                                    <textarea name="info" class="summernote" style="height: 100px">{{ $footerinfo?->info }}</textarea>
                                 </div>
                             </div>
 

@@ -55,7 +55,7 @@
                                         Address
                                     </label>
                                     <div class="col-sm-12 col-md-7">
-                                        <textarea rows="15" cols="30" name="address" class="form-control">{{ old('address', $qualification->address) }}</textarea>
+                                        <textarea rows="15" cols="30" name="address" class="summernote">{{ old('address', $qualification->address) }}</textarea>
                                     </div>
                                 </div>
 

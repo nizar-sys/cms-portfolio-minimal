@@ -50,7 +50,7 @@
                                         Description
                                     </label>
                                     <div class="col-sm-12 col-md-7">
-                                        <textarea name="description" id="" class="form-control" style="height: 100px">{{ $service->description }}</textarea>
+                                        <textarea name="description" id="" class="summernote" style="height: 100px">{{ $service->description }}</textarea>
                                     </div>
                                 </div>
 

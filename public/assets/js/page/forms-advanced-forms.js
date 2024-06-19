@@ -1,6 +1,6 @@
 "use strict";
 
-var cleavePN = new Cleave('.phone-number', {
+/* var cleavePN = new Cleave('.phone-number', {
   phone: true,
   phoneRegionCode: 'us'
 });
@@ -22,9 +22,9 @@ var cleaveI = new Cleave('.invoice-input', {
 var cleaveD = new Cleave('.datemask', {
   date: true,
   datePattern: ['Y', 'm', 'd']
-});
+}); */
 var cc_last_type;
-var cleaveCC = new Cleave('.creditcard', {
+/* var cleaveCC = new Cleave('.creditcard', {
   creditCard: true,
   onCreditCardTypeChanged: function(type) {
     if(type !== 'unknown') {
@@ -46,9 +46,9 @@ var cleaveCC = new Cleave('.creditcard', {
       cc_last_type = type;                        
     }
   }
-});
+}); */
 
-$(".pwstrength").pwstrength();
+/* $(".pwstrength").pwstrength(); */
 
 $('.daterange-cus').daterangepicker({
   locale: {format: 'YYYY-MM-DD'},
@@ -70,8 +70,8 @@ $('.daterange-btn').daterangepicker({
   $('.daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
 });
 
-$(".colorpickerinput").colorpicker({
+/* $(".colorpickerinput").colorpicker({
   format: 'hex',
   component: '.input-group-append',
-});
+}); */
 $(".inputtags").tagsinput('items');

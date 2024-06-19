@@ -10,7 +10,7 @@
                     <h2 class="section-heading gsap-reveal-hero mb-0">
                         <strong>{{ $portfolioSetting?->title }}</strong>
                     </h2>
-                    <p class="gsap-reveal-hero">{{ $portfolioSetting?->sub_title }}</p>
+                    <p class="gsap-reveal-hero">{!! $portfolioSetting?->sub_title !!}</p>
 
                     <div class="wave gsap-reveal-hero">
                         <svg>

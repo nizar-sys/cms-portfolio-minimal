@@ -37,7 +37,7 @@
                                    Seo Description
                                 </label>
                                 <div class="col-sm-12 col-md-7">
-                                    <textarea name="description" class="form-control" style="height: 100px">{{ $seo?->description }}</textarea>
+                                    <textarea name="description" class="summernote" style="height: 100px">{{ $seo?->description }}</textarea>
                                 </div>
                             </div>
 

@@ -24,7 +24,7 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => ['required','image','max:7000'],
+            'image' => ['required','image','max:50000'],
             'album_id' => ['required','numeric'] ,
         ]);
 
@@ -50,7 +50,7 @@ class GalleryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'image' => ['image','max:7000'],
+            'image' => ['image','max:50000'],
             'album_id' => ['required','numeric'] ,
         ]);
 

@@ -40,7 +40,7 @@ class ServiceController extends Controller
         $request->validate([
             'name' => ['required', 'max:200'],
             'description' => ['required'],
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:50048',
         ]);
 
         $imagePath = handleUpload('image');
@@ -90,7 +90,7 @@ class ServiceController extends Controller
         $request->validate([
             'name' => ['required', 'max:200'],
             'description' => ['required'],
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:50048',
         ]);
 
         $service = Service::findOrFail($id);

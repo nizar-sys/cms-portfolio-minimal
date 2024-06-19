@@ -11,7 +11,7 @@
                         <strong>{{ $serviceSetting?->title }}</strong>
                     </h2>
                     <p class="gsap-reveal-hero">
-                        {{ $serviceSetting?->sub_title }}
+                        {!! $serviceSetting?->sub_title !!}
                     </p>
                     <div class="wave gsap-reveal-hero">
                         <svg>
@@ -31,7 +31,7 @@
                             </div>
                             <h3 class="gsap-reveal-hero">{{ $serv->name }}</h3>
                             <p class="gsap-reveal-hero">
-                                {{ $serv->description }}
+                                {!! $serv->description !!}
                             </p>
                         </div>
                     </div>

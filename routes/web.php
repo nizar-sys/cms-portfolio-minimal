@@ -20,6 +20,8 @@ use App\Http\Controllers\Admin\FooterContactInfoController;
 use App\Http\Controllers\Admin\FooterHelpLinkController;
 use App\Http\Controllers\Admin\FooterInfoController;
 use App\Http\Controllers\Admin\FooterUsefulLinkController;
+use App\Http\Controllers\Admin\KrfSectionController;
+use App\Http\Controllers\Admin\KrfImageController;
 use App\Http\Controllers\Admin\GalleryAlbumController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\GallerySectionSettingController;
@@ -32,18 +34,14 @@ use App\Http\Controllers\Admin\ServiceSectionSettingController;
 use App\Http\Controllers\Admin\SkillItemController;
 use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Frontend\HomeController;
+use Illuminate\Support\Facades\Artisan;
+
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/optimize', function () {
+    Artisan::call('optimize:clear');
+    return 'Optimize Clear';
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -54,6 +52,7 @@ Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show
 Route::get('album-detail/{id}', [HomeController::class, 'showGallery'])->name('show.album');
 Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
 Route::get('/services', [HomeController::class, 'service'])->name('service');
+Route::get('/krf', [HomeController::class, 'krf'])->name('krf');
 Route::get('/contact', [HomeController::class, 'contactMe'])->name('contact.index');
 Route::post('contact', [HomeController::class, 'contact'])->name('contact');
 
@@ -124,7 +123,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     /**Seo Setting Route **/
     Route::resource('seo-setting', SeoSettingController::class);
 
+    /**Seo Gallery Route **/
     Route::resource('gallery', GalleryController::class);
     Route::resource('gallery-album', GalleryAlbumController::class);
     Route::resource('gallery-section-setting', GallerySectionSettingController::class);
+
+    /**Seo Krf Route **/
+    Route::resource('krf', KrfSectionController::class);
+    Route::resource('krfimage', KrfImageController::class);
+
 });

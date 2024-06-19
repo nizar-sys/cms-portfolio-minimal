@@ -1,7 +1,9 @@
 <nav class="site-nav dark mb-5 site-navbar-target">
     <div class="container">
         <div class="site-navigation">
-            <a href="{{ url('/', []) }}" class="logo m-0">{{ @$seoSetting->title }}<span class="text-primary">.</span></a>
+            <a href="{{ url('/', []) }}" class="logo m-0" title="{{ @$seoSetting->title }}" alt="{{ @$seoSetting->title }}">
+                <img src="{{ asset('frontend/assets/images/logodw.png') }}" class="lazyload img-fluid" alt="Images" />
+            </a>
 
             <ul class="js-clone-nav d-none d-lg-inline-none site-menu float-right site-nav-wrap">
                 @foreach ($footerUsefulLinks as $nav)

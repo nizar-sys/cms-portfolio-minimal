@@ -36,7 +36,7 @@
                                     Sub Title
                                 </label>
                                 <div class="col-sm-12 col-md-7">
-                                    <textarea name="sub_title" class="form-control" style="height: 100px"  >{{ $portfolio?->sub_title }}</textarea>
+                                    <textarea name="sub_title" class="summernote" style="height: 100px"  >{{ $portfolio?->sub_title }}</textarea>
                                 </div>
                             </div> 
 

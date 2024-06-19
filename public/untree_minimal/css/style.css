@@ -1151,7 +1151,9 @@ figure.dotted-bg {
 #about-section {
   margin-top: 0rem; }
   #about-section .container {
-    background: #0389ff;
+    /* background: #0389ff; */
+    color: #ccc;
+    background: #1B2934;
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 50px;
